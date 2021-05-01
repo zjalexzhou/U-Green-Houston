@@ -1,0 +1,312 @@
+/* use */
+body {
+    margin:0;
+    padding:0;
+    font-family: 'Roboto Slab', serif !important;
+}
+
+html, body, #map{
+    height:100%;
+    margin: 0px;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    z-index: 1;
+}
+
+/* legend */
+.legend {
+  position: absolute;;
+  right: 0px;
+  top: 0px;
+  z-index: 2000;
+  margin: 10px;
+}
+
+.legend .legend-title {
+    text-align: right;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 90%;
+    color: #2D3F50;
+    }
+  .legend .legend-scale ul {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    }
+  .legend .legend-scale ul li {
+    display: block;
+    float: left;
+    width: 50px;
+    margin-bottom: 6px;
+    text-align: right;
+    font-size: 80%;
+    list-style: none;
+    color: #2D3F50;
+    }
+  .legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 15px;
+    width: 50px;
+    }
+
+  .legend a {
+    color: #777;
+    }
+
+.legend-points {
+      position: absolute;;
+      right: 0px;
+      top: 80px;
+      z-index: 2000;
+      margin: 10px;
+}
+
+.legend-points .legend-title {
+    text-align: right;
+    font-weight: bold;
+    font-size: 90%;
+    color: #2D3F50;
+    }
+
+  .legend-points .legend-icon{
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: right;
+    width: 50px;
+    margin-bottom: 6px;
+    text-align: right;
+    }
+
+  .legend-points a {
+    color: #777;
+    }
+
+
+#sidebar {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  background: #0a4C6B;
+  color: #EFF1E6;
+  transition: all 0.3s;
+}
+
+#sidebar ul li a {
+    text-align: left;
+}
+
+#sidebar .sidebar-header {
+    position: relative;
+    background: #0a4C6B;
+}
+
+#sidebar .sidebar-header strong {
+    display: none;
+    font-size: 1.8em;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #fff;
+}
+
+#sidebar ul li a {
+    color:#EFF1E6;
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color:#2D3F50;
+    background: #EAF46E;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #2D3F50;
+    background: #EAF46E;
+}
+
+#menuButton {
+  position: absolute;
+  z-index: 999;
+  background-color: #2D3F50;
+  border-color: #2D3F50;
+}
+
+#radioButtons {
+  position: relative;
+  z-index: 999;
+  top: 100px;
+  right: 0;
+  color: #2D3F50;
+}
+
+#myModalHome {
+  font-size: 16px;
+}
+
+#chart2 {
+  text-align: center;
+}
+
+#chart1 {
+  text-align: center;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    color: #2D3F50;
+    background: #EFF1E6;
+}
+
+ul.CTAs {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.web,
+a.web:hover {
+    text-align: center !important;
+}
+
+a.homepage,
+a.homepage:hover {
+  text-align: center !important;
+}
+
+a.help,
+a.help:hover {
+  text-align: center !important;
+}
+
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+  position:relative;
+  transition: margin-left .5s;
+  padding: 16px;
+  height:100%;
+  z-index: 1;
+  margin-left: 300px;
+  border: 20px;
+}
+
+
+#main-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 5px;
+  padding-top: 5px;
+}
+
+#intro-content {
+  font-size:14px;
+}
+
+.hma-labels {
+  background-color: transparent;
+  border: transparent;
+  box-shadow: none;
+  color: white;
+  }
+
+/* The radio button container */
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
