@@ -152,8 +152,8 @@ a[aria-expanded="true"] {
 #menuButton {
   position: absolute;
   z-index: 999;
-  background-color: #2D3F50;
-  border-color: #2D3F50;
+  background-color: #1e8b03;
+  border-color: #098b5596;
 }
 
 #radioButtons {
