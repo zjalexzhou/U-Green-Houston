@@ -18,42 +18,62 @@
   </head>
 
   <body class="text-center">
-    <div class = "bgimg-1">
-        <!-- <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto">
-            <div class="inner">
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Maps</a>
-                <a class="nav-link" href="https://github.com/zjalexzhou/U-Green-Houston">GitHub</a>
-            </nav>
-            </div>
-        </header> -->
-
-        <main role="main" class="inner cover">
-            <img src='icon/logo-no-bg.png' style="margin:auto; width:450px; top:0; left:0; display:block">
-            <!-- <h1 class="cover-heading"><strong>Access to Open Green Space</strong></h1> -->
-            <p class="lead">For A Walk In The Park.</p>
-            <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-            </p>
-        </main>
-
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-            <p><i>Developed by Zhijie Zhou</i></p>
-            <small>A final project for Open Source GIS for the Web, Spring 2021</small>
-            </div>
-        </footer>
+    <!-- add any number of images -->
+    <div id="slideshow">
+      <img src="images/bgpic1.png" alt="Slideshow Image 1" class="active" />
+      <img src="images/bgpic2.png" alt="Slideshow Image 2" />
+      <img src="images/bgpic3.png" alt="Slideshow Image 3" />
+      <img src="images/bgpic4.png" alt="Slideshow Image 4" />
+      <img src="images/bgpic5.png" alt="Slideshow Image 5" /> 
+      <div class="overlay"></div>
+    </div>
+    <!-- <div class = "bgimg-1"> -->
+      <div>
+    <main role="main" class="inner cover" style="z-index: 15;">
+        <img src='icon/logo-no-bg.png' style="margin:auto; width:450px; top:0; left:0; display:block">
+        <p class="lead">For A Walk In The Park.</p>
+        <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+        </p>
+    </main>
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+        <p><i>Developed by Zhijie Zhou</i></p>
+        <small>A final project for Open Source GIS for the Web, Spring 2021</small>
         </div>
+    </footer>
+    </div>
     </div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script>
+      function slideSwitch() {
+          var $active = $('#slideshow IMG.active');
+
+          if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+          // use this to pull the images in the order they appear in the markup
+          var $next =  $active.next().is("img") ? $active.next()
+              : $('#slideshow IMG:first');
+
+          $active.addClass('last-active');
+
+          $next.css({opacity: 0.0})
+              .addClass('active')
+              .animate({opacity: 1.0}, 1000, function() {
+                  $active.removeClass('active last-active');
+              });
+      }
+
+      $(function() {
+          setInterval( "slideSwitch()", 4500 );
+      });
+    </script>
   </body>
 </html>
