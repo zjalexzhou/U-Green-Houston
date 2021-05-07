@@ -35,6 +35,21 @@ let menuControl = function(){
     }
 }
 
+/*Open Modal on Load*/
+$(window).on('load',function(){
+  $('#model-about').modal('show');
+});
+
+// or on click the help button
+$('#infoButton').on('click', function(){
+  $('#model-about').modal('show');
+})
+
+let modelHide = function(){
+  modalToClose = document.getElementsByClassName("modal fade");
+  modalToClose.modal('hide')
+}
+
 
   /* ===========================
 Event Functions Configuration
