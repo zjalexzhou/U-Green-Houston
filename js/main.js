@@ -29,7 +29,7 @@ Global Variables
 =============================== */
 
 // Data path (hosted on Github Gist)
-let parkPath = "https://gist.githubusercontent.com/zjalexzhou/7f937f2d8d358238a00a312626e290f6/raw/e7221e9fc4e23d0779d39dae4a8bc39097e606e1/houstonPark.geojson";
+let parkPath = "https://gist.githubusercontent.com/zjalexzhou/98a3cb5960a333c3a73556bb4cfa54eb/raw/ff2425cbca1a764c8c79bc0cc1b8ad5ea02d423b/houstonParksPoint.geojson";
 let parkServePath = "https://gist.githubusercontent.com/zjalexzhou/7f937f2d8d358238a00a312626e290f6/raw/e7221e9fc4e23d0779d39dae4a8bc39097e606e1/houstonParkServe.geojson";
 let parkSectorsPath = "https://gist.githubusercontent.com/zjalexzhou/7f937f2d8d358238a00a312626e290f6/raw/e7221e9fc4e23d0779d39dae4a8bc39097e606e1/houstonParkSectorData.geojson";
 let superNhoodsPath = "https://gist.githubusercontent.com/zjalexzhou/7f937f2d8d358238a00a312626e290f6/raw/e7221e9fc4e23d0779d39dae4a8bc39097e606e1/houstonSuperNhoodsData.geojson";
@@ -44,6 +44,7 @@ let tracts;
 
 let featureGroupId = [];
 let featureGroup = [];
+let markers = [];
 map.initialBounds = map.getBounds(); // record the initial bounds mapped
 
 /* ===============================
@@ -91,29 +92,6 @@ let tearDown = function(){
 
 let buildPage = function(pageDefinition, data){
     // build up a "slide" given a page definition
-    
-    $('#pageTitle').text(pageDefinition.title);
-    $('#pageContent').text(pageDefinition.content);
-    // $('#method').text(pageDefinition.method);
-    // $('#legend-title').text(pageDefinition.legendTitle)
-
-    // if(currentPage === 0){
-    //     $('#button-prev').prop("disabled", true);
-    // } else {
-    //     $('#button-prev').prop("disabled", false);
-    // }
-
-    // if(currentPage === slides.length-1){
-    //     $('#button-next').prop("disabled", true);
-    // } else {
-    //     $('#button-next').prop("disabled", false);
-    // }
-
-    // if(pageDefinition.title === "High Park Demand"){
-    //     $('#leg').hide();
-    // } else {
-    //     $('#leg').show();
-    // }
 
     if(pageDefinition.filter === undefined){
         theFilter = function() {return true};
@@ -124,8 +102,8 @@ let buildPage = function(pageDefinition, data){
       style: pageDefinition.style,
       filter: theFilter
     }).addTo(map);
-    console.log(tmpFeatureGroup)
-
+    // console.log(tmpFeatureGroup)
+    tmpFeatureGroup.eachLayer(eachFeatureFunction);
     featureGroupId.push(tmpFeatureGroup._leaflet_id);
     featureGroup.push(tmpFeatureGroup);
 
@@ -133,13 +111,29 @@ let buildPage = function(pageDefinition, data){
     // featureGroup.eachLayer(eachFeatureFunction);
 }
 
+let removeMarkers = function(){
+  _.each(markers, function(e){
+    map.removeLayer(e)
+  })
+
+}
+
 let fullExtent = function(){
+  removeMarkers();
   map.fitBounds(map.initialBounds);
 }
 
   /* =================
 Pages Configuration
 =================== */
+
+var parkIcon = L.icon({
+      iconUrl: 'icon/park.png',
+      iconSize:     [45, 45],
+      shadowSize:   [50, 64],
+      iconAnchor:   [22, 94],
+      popupAnchor:  [-3, -76]
+});
 
 // getDesSats(dataset, property)
 // This function generates 3 types of descriptive statistics (min, median, and max) 
@@ -186,6 +180,7 @@ var getLegendContent = function(data){
   return '<div class="gradient">'+s+'</div>';
 }
 
+
 let currentPage = 0;
 
 
@@ -215,22 +210,24 @@ var PPIPageDef = {
       $('#jk4').text(math.round(PPI_jenk_class[3],1))
       $('#jk5').text(math.round(PPI_jenk_class[4],1))
       $('#jk6').text(math.round(PPI_jenk_class[5],1))
-      if(PPI < PPI_jenk_class[0]){
-        return{color:"#034732"};
-      } 
-      else if (PPI >= PPI_jenk_class[0] & PPI < PPI_jenk_class[1]){
+      if (PPI >= PPI_jenk_class[0] & PPI < PPI_jenk_class[1]){
+        feature.properties['priority'] = 'Well Below Average'
         return{color: "#A4D4B4"};
       }
       else if (PPI >= PPI_jenk_class[1] & PPI < PPI_jenk_class[2]){
+        feature.properties['priority'] = 'Below Average'
         return{color:"#FFCF9C"};
       }
       else if (PPI >= PPI_jenk_class[2] & PPI < PPI_jenk_class[3]){
+        feature.properties['priority'] = 'Average'
         return{color:"#B96D40"}
       }
       else if (PPI >= PPI_jenk_class[3] & PPI < PPI_jenk_class[4]){
+        feature.properties['priority'] = 'Above Average'
         return{color:"#CA054D"}
       }
       else if (PPI >= PPI_jenk_class[4]){
+        feature.properties['priority'] = 'Well Above Average'
         return{color:"#3B1C32"}
       }
     },
@@ -240,8 +237,20 @@ var PPIPageDef = {
 slides = [parkAccess]
 PPI_jenk_class=[];
 
+let eachFeatureFunction = function(layer) {
+  layer.bindTooltip("Park Priority: "+ layer.feature.properties.priority + '<br>\n' + layer.feature.properties.NAME)
+  layer.on('click', function (event) {
+    console.log(layer)
+    map.fitBounds(event.target.getBounds());
+    _.each(park.features, function(e){
+      // console.log(e)
+      markers.push(L.marker([e.geometry.coordinates[1], e.geometry.coordinates[0]], {icon: parkIcon}).addTo(map))
+    })
+  })
+}
+
   /* ========
-Main Call
+Main Calls
 ========== */
 $(document).ready(function(){
     $.ajax(parkPath).done(function(json){
@@ -262,7 +271,12 @@ $(document).ready(function(){
         });
       });
     });
+    // _.each(park.features, function(e){
+    //   console.log(e)
+    //   L.marker([e.geometry.coordinates[1], e.geometry.coordinates[0]], {icon: parkIcon}).addTo(map)
+    // })
 });
+
 
 // buildPage(slides[currentPage]);
   // parkServe = JSON.parse(json);}

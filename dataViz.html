@@ -43,18 +43,40 @@
             <!-- Legend -->
             <div class='legend' id="initial-legend" style='display:none;'>
               <div class='legend-title'>
-                <span id="legend-title-show">Park Priority Index</span>
+                <span id="legend-title-show">Park Priority Index (0~100)</span>
               </div>
               <div class='legend-scale'>
                 <ul class='legend-labels'>
                   <li><span></span><p id='jk1'></p></li>
-                  <li><span style='background:#034732;'></span><p id='jk2'></p></li>
-                  <li><span style='background:#A4D4B4;'></span><p id='jk3'></p></li>
-                  <li><span style='background:#FFCF9C;'></span><p id='jk4'></p></li>
-                  <li><span style='background:#B96D40;'></span><p id='jk5'></p></li>
-                  <li><span style='background:#CA054D;'></span><p id='jk6'></p></li>
+                  <li><span style='background:#A4D4B4;'></span><p id='jk2'></p></li>
+                  <li><span style='background:#FFCF9C;'></span><p id='jk3'></p></li>
+                  <li><span style='background:#B96D40;'></span><p id='jk4'></p></li>
+                  <li><span style='background:#CA054D;'></span><p id='jk5'></p></li>
+                  <li><span style='background:#3B1C32;'></span><p id='jk6'></p></li>
+                  
                 </ul>
               </div>
+            </div>
+            <div class='selector'>
+              <!-- <label class='ckContainer'>Show Parks
+                <input type="checkbox" id="myCheck1" onclick='#'>
+                <span class="checkmark"></span>
+              </label>  -->
+              <label class='ckContainer'>Display: Super Neighborhoods
+                <input type="checkbox" id="myCheck1" onclick='#'>
+                <span class="checkmark"></span>
+              </label> 
+              <label class='ckContainer'>Display: Park Sectors
+                <input type="checkbox" id="myCheck2" onclick='#'>
+                <span class="checkmark"></span>
+              </label> 
+              <label class='ckContainer'>Display: Park Priority Index
+                <input type="checkbox" checked = "checked" id="myCheck3" onclick='#'>
+                <span class="checkmark"></span>
+              </label> 
+            </div>
+            <div class='Pinner' onclick="fullExtent()">
+              Back To Full Extent
             </div>
             <div id="map">
             </div>
