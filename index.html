@@ -63,7 +63,7 @@
           var $next =  $active.next().is("img") ? $active.next()
               : $('#slideshow IMG:first');
 
-          $active.addClass('last-active');
+          $active.addClass('last-active').hide();
 
           $next.show()
               .css({opacity: 0.3})
@@ -74,7 +74,7 @@
       }
 
       $(function() {
-          setInterval( "slideSwitch()", 2000 );
+          setInterval( "slideSwitch()", 4500 );
       });
     </script>
   </body>
