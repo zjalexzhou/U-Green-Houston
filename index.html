@@ -33,7 +33,7 @@
         <img src='icon/logo-no-bg.png' style="margin:auto; width:650px; top:0; left:0; display:block">
         <p class="lead">For A Walk In The Park.</p>
         <p class="lead">
-        <a href="#" class="btn btn-lg btn-secondary">Learn More</a>
+        <a href="javascript:;" onclick="toDataVizPage()" class="btn btn-lg btn-secondary">Learn More</a>
         </p>
     </main>
     <footer class="mastfoot mt-auto">
@@ -75,6 +75,10 @@
       $(function() {
           setInterval( "slideSwitch()", 4500 );
       });
+      
+      function toDataVizPage(){
+        self.location="dataViz.html";
+      }
     </script>
   </body>
 </html>
