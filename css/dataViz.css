@@ -1,0 +1,46 @@
+html {
+    font-size: 62.5%; }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0; }
+  
+  body {
+    margin: 0;
+    padding: 0; }
+
+    #map {
+        position: relative;
+        width:100%;
+        height:100%;
+        z-index: 1;
+    }
+  
+  #dataViz-U-Green-app {
+    position: relative;
+    width: 100%;
+    min-width: 1200px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #ddd;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1.8em;
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+    #dataViz-U-Green-app *, #dataViz-U-Green-app *:before, #dataViz-U-Green-app *:after {
+      -webkit-box-sizing: inherit;
+              box-sizing: inherit; }
+    #dataViz-U-Green-app .font-d {
+      font-family: "Montserrat", sans-serif; }
+  

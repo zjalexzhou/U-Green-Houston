@@ -1,0 +1,138 @@
+.App {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    /* Tooltips */ }
+    .App header {
+      position: relative;
+      -ms-flex: 0 0 75px;
+          flex: 0 0 75px;
+      background: #fff;
+      -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+              box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+      z-index: 999; }
+    .App footer {
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+      background: #73767a; }
+    .App .App-content {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+      -ms-flex-direction: row;
+          flex-direction: row;
+      -ms-flex-negative: 1;
+          flex-shrink: 1; }
+    .App .panel {
+      position: relative;
+      -ms-flex: 1 1;
+          flex: 1 1;
+      z-index: 1; }
+      .App .panel.left {
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+        width: auto;
+        z-index: 2; }
+    .App footer, .App header {
+      padding: 0 1rem; }
+    .App .react-hint {
+      /* custom */ }
+      .App .react-hint .react-hint__content {
+        padding: 6px;
+        font-size: 1.3rem;
+        color: #222;
+        background: #fff;
+        color: #464646;
+        border: 1px solid #fff;
+        line-height: 1;
+        max-width: 300px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        opacity: 0.9; }
+      .App .react-hint:after {
+        display: none; }
+      .App .react-hint.react-hint--top:after {
+        border-top-color: #fff; }
+      .App .react-hint.react-hint--right:after {
+        border-right-color: #fff; }
+      .App .react-hint.react-hint--left:after {
+        border-left-color: #fff; }
+      .App .react-hint.react-hint--bottom:after {
+        border-bottom-color: #fff; }
+      .App .react-hint .react-hint__content.howto {
+        position: relative; }
+        .App .react-hint .react-hint__content.howto ul {
+          margin: 0;
+          padding: 0;
+          list-style: none; }
+        .App .react-hint .react-hint__content.howto li {
+          margin-top: 1.2rem;
+          line-height: 1.6rem; }
+        .App .react-hint .react-hint__content.howto li:first-child {
+          margin-top: 0; }
+        .App .react-hint .react-hint__content.howto .Icon {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          overflow: hidden;
+          vertical-align: bottom; }
+          .App .react-hint .react-hint__content.howto .Icon svg {
+            width: 16px;
+            height: 16px;
+            fill: #464646; }
+      .App .react-hint .react-hint__content.popup-print {
+        position: relative;
+        width: 300px;
+        max-width: 300px;
+        -webkit-transform: translateX(-125px) translateY(-10px);
+            -ms-transform: translateX(-125px) translateY(-10px);
+                transform: translateX(-125px) translateY(-10px);
+        cursor: default; }
+        .App .react-hint .react-hint__content.popup-print h3 {
+          margin-top: 0.5rem; }
+      .App .react-hint .react-hint__content .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: monospace;
+        font-size: 24px;
+        line-height: 1;
+        height: 24px;
+        width: 24px;
+        overflow: hidden;
+        z-index: 10000000; }
+    .App [data-rh-custom-type='howto'] {
+      cursor: help; }
+    .App .infotip {
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      line-height: 0;
+      padding-left: 5px;
+      vertical-align: baseline;
+      cursor: help; }
+      .App .infotip svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        fill: #a7a9ac; }
+    .App .btn.link {
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      color: #7fc9bd;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      border: 0;
+      outline: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      cursor: pointer; }

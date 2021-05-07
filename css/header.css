@@ -1,0 +1,44 @@
+.header {
+    background: #fff;
+    height: 100%; }
+    .header h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: #114461;
+      line-height: 3.6rem; }
+      .header h1 a {
+        color: inherit; }
+        .header h1 a, .header h1 a:hover {
+          text-decoration: none; }
+      .header h1 .how-to {
+        padding: 0;
+        margin: 0 0 0 1.5rem;
+        background: transparent;
+        color: #02ac57;
+        font-size: 1.2rem;
+        font-weight: 400;
+        border: 0;
+        outline: 0; }
+    .header .left-container, .header .logo-container {
+      position: relative;
+      top: 100%;
+      -webkit-transform: translateY(-100%);
+          -ms-transform: translateY(-100%);
+              transform: translateY(-100%);
+      padding-bottom: 1rem; }
+    .header .left-container {
+      float: left; }
+    .header .logo-container {
+      float: right; }
+      .header .logo-container a {
+        display: inline-block;
+        font-size: 0;
+        line-height: 1;
+        vertical-align: text-bottom; }
+      .header .logo-container a + a {
+        margin-left: 2rem; }
+      .header .logo-container .ogs img {
+        width: 40px;
+        height: 40px; }

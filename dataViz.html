@@ -3,30 +3,91 @@
   <head>
     <meta charset="utf-8">
     <!-- CSS Imports -->
+    <link rel="stylesheet" href="./css/dataViz.css" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/profile.css" />
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css" integrity="sha256-YR4HrDE479EpYZgeTkQfgVJq08+277UXxMLbi/YP69o=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <title>Open Green Space in Houston, TX</title>
+    <title>Explore U Green Houston</title>
   </head>
   <body>
-    <!-- Sidebar  -->
-    <div id="sidebar">
+    <div id="dataViz-U-Green-app">
+      <div class="App">
+        <header class="header">
+          <div class="left-container">
+            <h1>
+              <a href="https://github.com/zjalexzhou/U-Green-Houston">Houston Open Green Space Profile</a>
+              <button class="how-to font-d" data-rh-click="true" data-rh-click-at="bottom" data-rh-custom-type="howto">Naivigating This Site</button>
+            </h1>
+          </div>
+          <div class="logo-container">
+            <p class="logo ogs">
+              <img alt="Project logo" src='icon/logo.png'>
+            </p>
+          </div>
+        </header>
+        <div class="App-content">
+          <div class="panel left">
+            <div class="profile">
+              <div class="profile-content">
+                <div class="profileViewer">
+                  <div class="profileView-inner">
+                    <button class="Pinner" data-rh-at="right" data-rh="Create Comparison View - Click here to compare your current selection to another census tract, super neighborhood, or park sector, or to the whole city."><span>+</span></button>
+                    <div class="profileViewer-child top"></div>
+                    <div class="profileViewer-child fill"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel right">
+            <div id="map"></div>
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="outer">
+            <div class="tb-cell">
+              <p>
+                The Houston Open Green Space Profile is a web-based visualization for the capstone research project designed to analyze the current coverage and demand of parks in the City of Houston. Data presented here come from Trust for Public Land, City of Houston GIS Data Hub, Harris County Department of Health, US Department of Agriculture, and US Census Bureau. To download a complete dataset and learn more about this research project, visit <a href>https://github.com/zjalexzhou/U-Green-Houston</a>.
+              </p>
+            </div>
+            <div class="tb-cell">
+              <ul class="links">
+                <li><a href>Download Data</a></li>
+                <li><a href>Github</a></li>
+                <li><a href>Print</a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- <div id=panels>
+      <div id="sidebar">
         <div class="sidebar-header">
-        <div class='logo-icon'>
-            <img src='icon/logo.png' style="margin:auto; width:260px; top:0; left:0; display:block">
+
         </div>
+        <div class="pinner">+</div>
         </div>
-    </div>
-    <!-- Page Content  -->
-    <div id="content" style="margin-left:300px;">
-        <!-- Menu Button -->
-        <button type="button" class="btn btn-primary" onclick="menuControl()" id="menuButton">Hide Menu</button>
-        <!-- Map -->
-        <div id="map" class="map"></div>
-    </div>
+      <div id="sidebar">
+        <div class="sidebar-header">
+        </div>
+        <div class="pinner">x</div>
+      </div>
+      <div id="content" style="margin-left:300px;">
+          <button type="button" class="btn btn-primary" onclick="menuControl()" id="menuButton">Hide Menu</button>
+          <button type="button" class="btn btn-primary" onclick="menuControl()" id="menuButton">+</button>
+          <div id="map" class="map"></div>
+      </div>
+    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

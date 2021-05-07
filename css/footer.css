@@ -1,0 +1,64 @@
+.footer {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    font-size: 1.2rem; }
+    .footer .outer {
+      display: table;
+      margin: 1rem 0;
+      table-layout: fixed; }
+    .footer .tb-cell {
+      display: table-cell;
+      vertical-align: middle; }
+      .footer .tb-cell:last-child {
+        white-space: nowrap; }
+    .footer p {
+      position: relative;
+      top: 0;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      color: #fff;
+      line-height: 1.4;
+      text-align: left; }
+    .footer button {
+      font-size: 1.2rem; }
+    .footer ul {
+      position: relative;
+      top: 0;
+      margin: 0;
+      padding: 0 0 0 1.5rem;
+      list-style: none;
+      text-align: right; }
+      .footer ul li {
+        display: inline-block;
+        padding: 0; }
+        .footer ul li:last-child {
+          margin-right: 0; }
+        .footer ul li a, .footer ul li .btn.link {
+          display: block;
+          position: relative;
+          padding: 10px 10px;
+          line-height: 1;
+          color: #7fc9bd;
+          font-size: 1.1rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          outline: 0; }
+          .footer ul li a:hover, .footer ul li .btn.link:hover {
+            color: #7fc9bd; }
+          .footer ul li a span, .footer ul li .btn.link span {
+            position: relative; }
+          .footer ul li a span:after, .footer ul li .btn.link span:after {
+            display: none;
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.8); }
+    .footer a {
+      color: #7fc9bd;
+      text-decoration: none; }
+  

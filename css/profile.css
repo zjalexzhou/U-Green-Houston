@@ -1,0 +1,67 @@
+.profile{
+    position: relative;
+    height: 100%; }
+  
+  .profile-content {
+    position: relative;
+    display: block;
+    height: 100%;
+    white-space: nowrap; }
+    .profile-content > div + div {
+      margin-left: 10px; }
+  
+  .profileViewer {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    background: white;
+    vertical-align: top;
+    width: 400px;
+    outline: 0;
+    -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2); }
+  
+  .profileViewer-inner {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    height: 100%; }
+    .profileViewer-inner .profileViewer-child {
+      position: relative;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+      overflow: hidden; }
+      .profileViewer-inner .profileViewer-child.fill {
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
+      .profileViewer-inner .profileViewer-child.top {
+        overflow: visible;
+        z-index: 100; }
+  
+  .Pinner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    background: #114461;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+    line-height: 1;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    z-index: 200;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+    .Pinner:disabled {
+      opacity: 0.5;
+      pointer-events: none; }
+    .Pinner:hover {
+      color: #464646; }
