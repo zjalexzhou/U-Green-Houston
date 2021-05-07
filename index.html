@@ -21,11 +21,11 @@
     <!-- add any number of images -->
     <div id="slideshow">
       <img src="images/bgpic1.png" alt="Slideshow Image 1" class="active" />
-      <img src="images/bgpic2.png" alt="Slideshow Image 2" />
-      <img src="images/bgpic3.png" alt="Slideshow Image 3" />
-      <img src="images/bgpic4.png" alt="Slideshow Image 4" />
-      <img src="images/bgpic5.png" alt="Slideshow Image 5" /> 
-      <div class="overlay"></div>
+      <img src="images/bgpic2.png" alt="Slideshow Image 2" style="display: none;"/>
+      <img src="images/bgpic3.png" alt="Slideshow Image 3" style="display: none;"/>
+      <img src="images/bgpic4.png" alt="Slideshow Image 4" style="display: none;"/>
+      <img src="images/bgpic5.png" alt="Slideshow Image 5" style="display: none;"/> 
+      <!-- <div class="overlay"></div> -->
     </div>
     <!-- <div class = "bgimg-1"> -->
       <div>
@@ -55,6 +55,7 @@
     <script>
       function slideSwitch() {
           var $active = $('#slideshow IMG.active');
+          console.log($active)
 
           if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
 
@@ -64,15 +65,16 @@
 
           $active.addClass('last-active');
 
-          $next.css({opacity: 0.0})
+          $next.show()
+              .css({opacity: 0.3})
               .addClass('active')
-              .animate({opacity: 1.0}, 1000, function() {
+              .animate({opacity: 1}, 1000, function() {
                   $active.removeClass('active last-active');
               });
       }
 
       $(function() {
-          setInterval( "slideSwitch()", 4500 );
+          setInterval( "slideSwitch()", 2000 );
       });
     </script>
   </body>

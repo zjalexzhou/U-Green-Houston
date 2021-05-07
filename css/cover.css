@@ -30,21 +30,6 @@ a:hover {
   font: 400 15px/1.8 "Trebuchet MS", sans-serif;
 }  
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
-    position: relative;
-    opacity: 1;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  
-}
-.bgimg-1 {
-    /* background-image: url("../bgpic.png"); */
-    height: 100%;
-    width: 100%;
-    z-index:1;
-}
-
 body {
   display: -ms-flexbox;
   display: -webkit-box;
@@ -52,7 +37,7 @@ body {
   -ms-flex-pack: center;
   -webkit-box-pack: center;
   justify-content: center;
-  color: #fff;
+  color: rgba(7, 56, 19, 0.39);
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
@@ -78,10 +63,12 @@ z-index:-1;
 #slideshow IMG.active {
   z-index:10;
   opacity:1.0;
+  /* display: block; */
 }
 
 #slideshow IMG.last-active {
   z-index:9;
+  display: none;
 }
 
 #slideshow img {
