@@ -149,19 +149,23 @@ a[aria-expanded="true"] {
     background: #EAF46E;
 }
 
+#selectionView {
+
+}
+
 .pinner {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 5px;
+  padding: 0;
   height: 30px;
   width: 30px;
   background: #04883f;
   font-family: monospace;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: white;
-  line-height: 0.5;
+  line-height: 1;
   cursor: pointer;
   border: 0;
   outline: 0;

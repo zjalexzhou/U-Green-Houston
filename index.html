@@ -67,17 +67,18 @@
           $next.show()
               .css({opacity: 0.3})
               .addClass('active')
-              .animate({opacity: 1}, 1000, function() {
+              .animate({opacity: 1}, 900, function() {
                   $active.removeClass('active last-active');
               });
       }
 
       $(function() {
-          setInterval( "slideSwitch()", 4500 );
+          setInterval( "slideSwitch()", 4400 );
       });
       
+      
       function toDataVizPage(){
-        self.location="dataViz.html";
+          self.location="dataViz.html";
       }
     </script>
   </body>

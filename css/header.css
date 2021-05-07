@@ -21,7 +21,7 @@
         font-weight: 400;
         border: 0;
         outline: 0; }
-    .header .left-container, .header .logo-container {
+    .header .left-container{
       position: relative;
       top: 100%;
       -webkit-transform: translateY(-100%);
@@ -30,15 +30,3 @@
       padding-bottom: 1rem; }
     .header .left-container {
       float: left; }
-    .header .logo-container {
-      float: right; }
-      .header .logo-container a {
-        display: inline-block;
-        font-size: 0;
-        line-height: 1;
-        vertical-align: text-bottom; }
-      .header .logo-container a + a {
-        margin-left: 2rem; }
-      .header .logo-container .ogs img {
-        width: 45px;
-        height: 45px; bottom:0;}

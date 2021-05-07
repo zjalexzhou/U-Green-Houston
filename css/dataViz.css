@@ -25,8 +25,8 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: #ddd;
-    font-family: "Montserrat", sans-serif;
+    background: rgba(207, 201, 201, 0.76);
+    font-family: "Trebuchet MS", sans-serif;
     font-weight: 400;
     font-size: 1.7rem;
     line-height: 1.8em;
@@ -42,5 +42,5 @@ html {
       -webkit-box-sizing: inherit;
               box-sizing: inherit; }
     #dataViz-U-Green-app .font-d {
-      font-family: "Georgia", sans-serif; }
+      font-family: "Trebuchet MS", sans-serif; }
   

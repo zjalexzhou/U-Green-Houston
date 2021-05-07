@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/profile.css" />
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css" integrity="sha256-YR4HrDE479EpYZgeTkQfgVJq08+277UXxMLbi/YP69o=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -23,46 +21,55 @@
         <header class="header">
           <div class="left-container">
             <h1>
-              <a href="https://github.com/zjalexzhou/U-Green-Houston">Houston Open Green Space Profile</a>
+              <a href="https://github.com/zjalexzhou/U-Green-Houston">🌲Houston Open Green Space Profile🌼</a>
               <button id = "infoButton" class="how-to font-d" data-rh-click="true" data-rh-click-at="bottom" data-rh-custom-type="howto"><h4>Site Information</h4></button>
             </h1>
           </div>
-          <div class="logo-container">
-            <p class="logo ogs">
-              <img alt="Project logo" src='icon/logo-no-bg.png'>
-            </p>
-          </div>
         </header>
         <div class="App-content">
-          <div class="panel left">
+          <!-- <div class="panel left">
             <div class="profile">
               <div class="profile-content">
                 <div class="profileViewer">
                   <div class="profileView-inner">
-                    <button class="Pinner" data-rh-at="right" data-rh="Create Comparison View - Click here to compare your current selection to another census tract, super neighborhood, or park sector, or to the whole city."><span>+</span></button>
-                    <div class="profileViewer-child top"></div>
-                    <div class="profileViewer-child fill"></div>
+                      <h3 id='pageTitle' style='text-align: center;'></h3>
+                      <p id='pageContent'></p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="panel right">
-            <div id="map"></div>
+            <!-- Legend -->
+            <div class='legend' id="initial-legend" style='display:none;'>
+              <div class='legend-title'>
+                <span id="legend-title-show">Park Priority Index</span>
+              </div>
+              <div class='legend-scale'>
+                <ul class='legend-labels'>
+                  <li><span></span><p id='jk1'></p></li>
+                  <li><span style='background:#034732;'></span><p id='jk2'></p></li>
+                  <li><span style='background:#A4D4B4;'></span><p id='jk3'></p></li>
+                  <li><span style='background:#FFCF9C;'></span><p id='jk4'></p></li>
+                  <li><span style='background:#B96D40;'></span><p id='jk5'></p></li>
+                  <li><span style='background:#CA054D;'></span><p id='jk6'></p></li>
+                </ul>
+              </div>
+            </div>
+            <div id="map">
+            </div>
           </div>
         </div>
         <footer class="footer">
           <div class="outer">
             <div class="tb-cell">
               <p>
-                The Houston Open Green Space Profile is a web-based visualization for the capstone research project designed to analyze the current coverage and demand of parks in the City of Houston. Data presented here come from Trust for Public Land, City of Houston GIS Data Hub, Harris County Department of Health, US Department of Agriculture, and US Census Bureau. To download a complete dataset and learn more about this research project, visit <a href='https://github.com/zjalexzhou/U-Green-Houston'>https://github.com/zjalexzhou/U-Green-Houston</a>.
+                The Houston Open Green Space Profile is a web-based visualization for the capstone research project designed to analyze the current coverage and demand of parks in the City of Houston. Data presented here come from Trust for Public Land, COHGIS, HCPH, USDA, and US Census Bureau. To download a complete dataset and learn more about this research project, visit <a href='https://github.com/zjalexzhou/U-Green-Houston'>https://github.com/zjalexzhou/U-Green-Houston</a>.
               </p>
             </div>
             <div class="tb-cell">
               <ul class="links">
-                <li><a href>Download Data</a></li>
-                <li><a href>Github</a></li>
-                <li><a href>Print</a></li>
+                <li><a href="javascript:"  onClick="downloadLink()">Download Data</a></li>
               </ul>
             </div>
           </div>
@@ -94,7 +101,7 @@
               </li>
               <br>
               <li>
-                You can compare pair-wise performance at tract level. Besides, Park service area and land cover data showcases are also available at super neighborhood and park sector scale.
+                Besides, Park service area and land cover data showcases are also available at super neighborhood and park sector scale.
               </li>
               <br>
               <li>
@@ -129,8 +136,11 @@
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/2.0.2/turf.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-    <script src="./js/setup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.1/chroma.min.js" integrity="sha512-RWI59o+PDXjPl3bakOf3k2ZbDtfvn/OU/ZKe6QmkE0V/ve7vYKEJe0RdkDueS+VkghBazP+1o4LKGON+pHUa5g==" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

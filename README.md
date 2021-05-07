@@ -1,2 +1,7 @@
-# U-Green-Houston
-Web-based Visualization of Green Spaces in Houston &amp; Advice for Siting 
+# Open Green Spaces Profile in Houston, TX
+Debates on development and conservation never ended, as cites themselves never stopped sprawling in the past decades. Rapid expansion and uneven distribution of resources brought about challenges for sustainable and coordinated community growth. How often do you go for a walk in the park or in the woods? This may not be a problem for you if you happen to live close to a park, a community garden, or some other kind of green spaces. However, according to Trust for Public Land's research on urban parks and communities, more than 1 million people in the United States do not have access to a quality park within a 10-minute walk of home. Besides providing important recreational opportunities for people's wellbeing, green spaces add on the beauty and environmental quality of neighborhoods, and can serve as shelters for urban wildlife, infrastructure for storm water storage, etc. 
+
+The project aims at investigating the demand for public parks and prioritizing a region within the City of Houston. A Park Priority Index (PPI) is measured at census-tract level to prioritize the tract with the highest demand for new park development using Entropy Weight Method to determine the weights among the three component s of par k demand defined in the scope of this project: Present Deficits, Revitalization Needs, and Health issues, each made up of several child indicators aggregated tog ether with weights assigned by EWM as well.
+
+Techniques used: html/css, jQuery, turf.js, leaflet, underscore.js
+

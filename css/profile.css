@@ -1,4 +1,4 @@
-.profile{
+/* .profile{
     position: relative;
     height: 100%; }
   
@@ -14,9 +14,9 @@
     position: relative;
     display: inline-block;
     height: 100%;
-    background: white;
+    background: rgb(189, 186, 186);
     vertical-align: top;
-    width: 400px;
+    width: 360px;
     outline: 0;
     -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
             box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2); }
@@ -30,28 +30,27 @@
     .profileViewer-inner .profileViewer-child {
       position: relative;
       -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-      overflow: hidden; }
-      .profileViewer-inner .profileViewer-child.fill {
+          flex: 0 1 auto;}
+      .profileViewer-inner .profileViewer-child.b {
         -ms-flex: 1 1 auto;
-            flex: 1 1 auto; }
-      .profileViewer-inner .profileViewer-child.top {
-        overflow: visible;
-        z-index: 100; }
+            flex: 1 1 auto; 
+            overflow: scroll; }
+      .profileViewer-inner .profileViewer-child.a {
+        z-index: 100; } */
   
   .Pinner {
     position: absolute;
     top: 0;
     right: 0;
     padding: 0;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     background: #02ac57;
     font-family: monospace;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: white;
-    line-height: 1;
+    line-height: 0.4;
     cursor: pointer;
     border: 0;
     outline: 0;
@@ -65,3 +64,75 @@
       pointer-events: none; }
     .Pinner:hover {
       color: #464646; }
+
+/* legend */
+.legend {
+  position: absolute;;
+  left: 0px;
+  bottom: 0px;
+  z-index: 2000;
+  margin: 10px;
+}
+
+.legend .legend-title {
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #2D3F50;
+  }
+.legend .legend-scale ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style: none;
+  }
+.legend .legend-scale ul li {
+  display: block;
+  float: left;
+  width: 50px;
+  margin-bottom: 6px;
+  text-align: right;
+  font-size: 80%;
+  list-style: none;
+  color: #2D3F50;
+  }
+.legend ul.legend-labels li span {
+  display: block;
+  float: left;
+  height: 15px;
+  width: 50px;
+  }
+
+.legend a {
+  color: #777;
+  }
+
+.legend-points {
+    position: absolute;;
+    right: 0px;
+    top: 80px;
+    z-index: 2000;
+    margin: 10px;
+}
+
+.legend-points .legend-title {
+  text-align: right;
+  font-weight: bold;
+  font-size: 90%;
+  color: #2D3F50;
+  }
+
+.legend-points .legend-icon{
+  margin: 0;
+  padding: 0;
+  display: block;
+  float: right;
+  width: 50px;
+  margin-bottom: 6px;
+  text-align: right;
+  }
+
+.legend-points a {
+  color: #777;
+  }
