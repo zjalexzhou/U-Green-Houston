@@ -27,54 +27,47 @@
           </div>
         </header>
         <div class="App-content">
-          <!-- <div class="panel left">
-            <div class="profile">
-              <div class="profile-content">
-                <div class="profileViewer">
-                  <div class="profileView-inner">
-                      <h3 id='pageTitle' style='text-align: center;'></h3>
-                      <p id='pageContent'></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
           <div class="panel right">
             <!-- Legend -->
-            <div class='legend' id="initial-legend" style='display:none;'>
+            <div class='legend'>
               <div class='legend-title'>
-                <span id="legend-title-show">Park Priority Index (0~100)</span>
+                <span id="legend-title-show"></span>
               </div>
               <div class='legend-scale'>
-                <ul class='legend-labels'>
-                  <li><span></span><p id='jk1'></p></li>
-                  <li><span style='background:#A4D4B4;'></span><p id='jk2'></p></li>
-                  <li><span style='background:#FFCF9C;'></span><p id='jk3'></p></li>
-                  <li><span style='background:#B96D40;'></span><p id='jk4'></p></li>
-                  <li><span style='background:#CA054D;'></span><p id='jk5'></p></li>
-                  <li><span style='background:#3B1C32;'></span><p id='jk6'></p></li>
-                  
+                <ul class='legend-labels' id='colorRamp1' style="display:none">
+                  <li><span></span><p name='jk1'></p></li>
+                  <li><span name='col1' style='background:green;'></span><p name='jk2'></p></li>
+                  <li><span name='col2' style='background:#045664;'></span><p name='jk3'></p></li>
+                  <li><span name='col3' style='background:#B96D40;'></span><p name='jk4'></p></li>
+                  <li><span name='col4' style='background:#CA054D;'></span><p name='jk5'></p></li>
+                  <li><span name='col5' style='background:#3B1C32;'></span><p name='jk6'></p></li>
+                </ul>
+                <ul class='legend-labels' id='colorRamp2' style="display:none">
+                  <li><span></span><p name='jk1'></p></li>
+                  <li><span name='col1' style='background:darkgoldenrod;'></span><p name='jk2'></p></li>
+                  <li><span name='col2' style='background:orange;'></span><p name='jk3'></p></li>
+                  <li><span name='col3' style='background:#41b6c4;'></span><p name='jk4'></p></li>
+                  <li><span name='col4' style='background:#2c7fb8;'></span><p name='jk5'></p></li>
+                  <li><span name='col5' style='background:darkgreen;'></span><p name='jk6'></p></li>
                 </ul>
               </div>
             </div>
+            <!-- Display Layer Selector -->
             <div class='selector'>
-              <!-- <label class='ckContainer'>Show Parks
-                <input type="checkbox" id="myCheck1" onclick='#'>
+              <label class='ckContainer'>Display: Park Priority Index
+                <input type="radio" checked = "checked" id="myRadio1" name='checkRadio'>
                 <span class="checkmark"></span>
-              </label>  -->
+              </label> 
               <label class='ckContainer'>Display: Super Neighborhoods
-                <input type="checkbox" id="myCheck1" onclick='#'>
+                <input type="radio" id="myRadio2" name='checkRadio'>
                 <span class="checkmark"></span>
               </label> 
               <label class='ckContainer'>Display: Park Sectors
-                <input type="checkbox" id="myCheck2" onclick='#'>
+                <input type="radio" id="myRadio3" name='checkRadio'>
                 <span class="checkmark"></span>
-              </label> 
-              <label class='ckContainer'>Display: Park Priority Index
-                <input type="checkbox" checked = "checked" id="myCheck3" onclick='#'>
-                <span class="checkmark"></span>
-              </label> 
+              </label>
             </div>
+            <!-- Pinner for marker control -->
             <div class='Pinner' onclick="fullExtent()">
               Back To Full Extent
             </div>
@@ -137,24 +130,6 @@
           </div>
       </div>
     </div>
-    <!-- <div id=panels>
-      <div id="sidebar">
-        <div class="sidebar-header">
-
-        </div>
-        <div class="pinner">+</div>
-        </div>
-      <div id="sidebar">
-        <div class="sidebar-header">
-        </div>
-        <div class="pinner">x</div>
-      </div>
-      <div id="content" style="margin-left:300px;">
-          <button type="button" class="btn btn-primary" onclick="menuControl()" id="menuButton">Hide Menu</button>
-          <button type="button" class="btn btn-primary" onclick="menuControl()" id="menuButton">+</button>
-          <div id="map" class="map"></div>
-      </div>
-    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -1,44 +1,4 @@
-/* .profile{
-    position: relative;
-    height: 100%; }
-  
-  .profile-content {
-    position: relative;
-    display: block;
-    height: 100%;
-    white-space: nowrap; }
-    .profile-content > div + div {
-      margin-left: 10px; }
-  
-  .profileViewer {
-    position: relative;
-    display: inline-block;
-    height: 100%;
-    background: rgb(189, 186, 186);
-    vertical-align: top;
-    width: 360px;
-    outline: 0;
-    -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2); }
-  
-  .profileViewer-inner {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    height: 100%; }
-    .profileViewer-inner .profileViewer-child {
-      position: relative;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;}
-      .profileViewer-inner .profileViewer-child.b {
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto; 
-            overflow: scroll; }
-      .profileViewer-inner .profileViewer-child.a {
-        z-index: 100; } */
-  
-  .Pinner {
+.Pinner {
     position: absolute;
     top: 0;
     left: 0;
@@ -137,13 +97,21 @@
   }
 
 .selector {
-  position: absolute;;
+  /* position: absolute;;
   right: 0px;
   top: 0px;
   z-index: 2000;
   margin: 10px;
-  background-color: darkgrey;
+  
+  padding: 15px; */
+  position: absolute;
+  z-index: 999;
+  top: 100px;
+  right: 0;
+  margin: 10px;
   padding: 15px;
+  color: #ffffff;
+  background-color: darkgrey;
 }
 /* Customize the label (the container) */
 .ckContainer {
@@ -164,11 +132,9 @@
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 0;
-  width: 0;
 }
 
-/* Create a custom checkbox */
+/* Create a custom checkbox (radio) */
 .checkmark {
   position: absolute;
   top: 0;
@@ -176,6 +142,7 @@
   height: 25px;
   width: 25px;
   background-color: #eee;
+  border-radius: 50%
 }
 
 /* On mouse-over, add a grey background color */
