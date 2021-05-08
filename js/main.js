@@ -44,6 +44,8 @@ let tracts;
 
 var ctx1 = document.getElementById('chart1').getContext('2d');
 var myChart1 = new Chart(ctx1);
+var ctx2 = document.getElementById('chart2').getContext('2d');
+var myChart2 = new Chart(ctx2);
 
 let featureGroupId = [];
 let featureGroup = [];
@@ -265,6 +267,28 @@ let eachFeatureFunction = function(layer) {
     console.log(layer)
     console.log(layer.feature.properties.coverage)
     map.fitBounds(event.target.getBounds());
+    console.log(layer.feature.properties)
+    
+    if(layer.feature.properties.SNBNAME){
+      $('#modal-spn-label').text(layer.feature.properties.SNBNAME)
+      $('#spn-size').text(math.round(layer.feature.properties.ACRES, 2) + " Acres")
+      $('#spn-bd').text(layer.feature.properties.BuildingsPerAcre)
+      $('#spn-nd').text(layer.feature.properties.Join_Count)
+    } else if (layer.feature.properties.rank_final) {
+      $('#modal-spn-label').text(layer.feature.properties.NAME)
+      $('#spn-size').text(math.round(layer.feature.properties.AreaInAcre, 2) + " Acres")
+      $('#spn-bd').text(layer.feature.properties.BuildingsPerAcre)
+      $('#spn-nd').text(layer.feature.properties.Join_Count)
+    } else if (layer.feature.properties.SECTOR){
+      $('#modal-spn-label').text("Park Sector "+layer.feature.properties.SECTOR + " - "+ layer.feature.properties.NAME)
+      $('#spn-size').text(math.round(layer.feature.properties.ACRES, 2) + " Acres")
+      $('#spn-bd').text(layer.feature.properties.BuildingsPerAcre)
+      $('#spn-nd').text(layer.feature.properties.Join_Count)
+    }
+
+    $('#modal-spn').modal('show');
+    landCoverChart(layer.feature)
+
     _.each(park.features, function(e){
       // console.log(e)
       parkMarker = L.marker([e.geometry.coordinates[1], e.geometry.coordinates[0]], {icon: parkIcon}).addTo(map)
@@ -341,6 +365,55 @@ var parkChart = function(data){
                   // 'rgba(75, 192, 192, 1)',
                   // 'rgba(153, 102, 255, 1)',
                   // 'rgba(255, 159, 64, 1)'
+              ],
+              hoverOffset: 10
+          }]
+      },
+  });
+}
+
+var landCoverChart = function(data){
+  myChart2.destroy()
+  myChart2 = new Chart(ctx2, {
+      type: 'doughnut',
+      data: {
+          labels: ['Barren Lands', 'Cultivated Crops', 'Developed High Intensity',
+        "Developed Medium Intensity", "Developed Low Intensity", "Developed Open Space", 
+        "Forest Shrubs", "Open Water", "Wetlands"],
+          datasets: [{
+              data: [data.RATIO_BARREN_LANDS, 
+                data.RATIO_CULTIVATED_CROPS, 
+                data.RATIO_DEVELOPED_HIGH, 
+                data.RATIO_DEVELOPED_LOW, 
+                data.RATIO_DEVELOPED_MEDIUM,
+                data.RATIO_DEVELOPED_OPEN_SPACE,
+                data.RATIO_FOREST_SHRUBS,
+                data.RATIO_OPEN_WATER,
+                data.RATIO_PASTURE_GRASSLANDS,
+                data.RATIO_WETLANDS],
+              backgroundColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 19, 164, 1)',
+                'rgba(75, 122, 132, 1)',
+                'rgba(153, 12, 25, 1)',
+                'rgba(251, 159, 64, 1)',
+                'rgba(151, 159, 164, 1)'
+              ],
+              borderColor: [
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 19, 164, 1)',
+                  'rgba(75, 122, 132, 1)',
+                  'rgba(153, 12, 25, 1)',
+                  'rgba(251, 159, 64, 1)',
+                  'rgba(151, 159, 164, 1)'
               ],
               hoverOffset: 10
           }]
