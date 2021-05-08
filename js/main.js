@@ -273,21 +273,21 @@ let eachFeatureFunction = function(layer) {
       $('#modal-spn-label').text(layer.feature.properties.SNBNAME)
       $('#spn-size').text(math.round(layer.feature.properties.ACRES, 2) + " Acres")
       $('#spn-bd').text(layer.feature.properties.BuildingsPerAcre)
-      $('#spn-nd').text(layer.feature.properties.Join_Count)
+      $('#spn-nb').text(layer.feature.properties.Join_Count)
     } else if (layer.feature.properties.rank_final) {
       $('#modal-spn-label').text(layer.feature.properties.NAME)
       $('#spn-size').text(math.round(layer.feature.properties.AreaInAcre, 2) + " Acres")
       $('#spn-bd').text(layer.feature.properties.BuildingsPerAcre)
-      $('#spn-nd').text(layer.feature.properties.Join_Count)
+      $('#spn-nb').text(layer.feature.properties.Join_Count)
     } else if (layer.feature.properties.SECTOR){
       $('#modal-spn-label').text("Park Sector "+layer.feature.properties.SECTOR + " - "+ layer.feature.properties.NAME)
       $('#spn-size').text(math.round(layer.feature.properties.ACRES, 2) + " Acres")
       $('#spn-bd').text(layer.feature.properties.BuildingsPerAcre)
-      $('#spn-nd').text(layer.feature.properties.Join_Count)
+      $('#spn-nb').text(layer.feature.properties.Join_Count)
     }
 
     $('#modal-spn').modal('show');
-    landCoverChart(layer.feature)
+    landCoverChart(layer.feature.properties)
 
     _.each(park.features, function(e){
       // console.log(e)
