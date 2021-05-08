@@ -42,6 +42,9 @@ let parkSectors;
 let superNeighborhoods;
 let tracts;
 
+var ctx1 = document.getElementById('chart1').getContext('2d');
+var myChart1 = new Chart(ctx1);
+
 let featureGroupId = [];
 let featureGroup = [];
 let markers = [];
@@ -211,10 +214,6 @@ let SuperNhoodsServe = {
   },
 }
 
-let SuperNhoodsBldgDensity = {
-
-}
-
 let ParkSectorServe = {
   pgCode: 2,
   title: "Park Service Area Coverage for each Park Sector ",
@@ -250,10 +249,6 @@ let ParkSectorServe = {
   },
 }
 
-let ParkSectorBldgDensity = {
-
-}
-
 let eachFeatureFunction = function(layer) {
   if(layer.feature.properties.final_score >= 0){
     layer.bindTooltip("Park Priority: "+ layer.feature.properties.priority + '<br>\n' + layer.feature.properties.NAME)
@@ -275,6 +270,7 @@ let eachFeatureFunction = function(layer) {
       parkMarker = L.marker([e.geometry.coordinates[1], e.geometry.coordinates[0]], {icon: parkIcon}).addTo(map)
       // console.log(parkMarker)
       parkMarker['properties'] = e.properties
+      parkMarker.properties['SUMOTHERP'] = parkMarker.properties.SUM_TOTPOP - (parkMarker.properties.SUM_SENIOR+parkMarker.properties.SUM_YOUNGP)
       eachParkMarkerFunction(parkMarker)
       markers.push(parkMarker)
     })
@@ -291,6 +287,8 @@ let eachParkMarkerFunction = function(layer){
     $('#park-hh').text(layer.properties.SUM_TOTHHS)
     $('#park-sp').text(layer.properties.SUM_TOTPOP)
     $('#modal-park').modal('show');
+
+    parkChart(layer.properties)
   })
 }
 
@@ -318,6 +316,36 @@ function onRadioClick(event) {
       buildPage(ParkSectorServe, parkSectors)
       break;
   };
+}
+
+var parkChart = function(data){
+  myChart1.destroy()
+  myChart1 = new Chart(ctx1, {
+      type: 'doughnut',
+      data: {
+          labels: ['Senior Population', 'Young Population', 'In-between'],
+          datasets: [{
+              data: [data.SUM_SENIOR, data.SUM_YOUNGP, data.SUMOTHERP],
+              backgroundColor: [
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  // 'rgba(75, 192, 192, 0.2)',
+                  // 'rgba(153, 102, 255, 0.2)',
+                  // 'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(255, 99, 132, 1)',
+                  // 'rgba(75, 192, 192, 1)',
+                  // 'rgba(153, 102, 255, 1)',
+                  // 'rgba(255, 159, 64, 1)'
+              ],
+              hoverOffset: 10
+          }]
+      },
+  });
 }
 
   /* ========
