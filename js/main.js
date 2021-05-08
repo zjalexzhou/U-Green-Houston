@@ -272,12 +272,27 @@ let eachFeatureFunction = function(layer) {
     map.fitBounds(event.target.getBounds());
     _.each(park.features, function(e){
       // console.log(e)
-      markers.push(L.marker([e.geometry.coordinates[1], e.geometry.coordinates[0]], {icon: parkIcon}).addTo(map))
+      parkMarker = L.marker([e.geometry.coordinates[1], e.geometry.coordinates[0]], {icon: parkIcon}).addTo(map)
+      // console.log(parkMarker)
+      parkMarker['properties'] = e.properties
+      eachParkMarkerFunction(parkMarker)
+      markers.push(parkMarker)
     })
   })
 }
 
-let eachParkMarkerFunction
+let eachParkMarkerFunction = function(layer){
+  layer.on('click', function (event) {
+    console.log(layer)
+    
+    $('#modal-park-label').text(layer.properties.Park_Name + " "+"- TX "+layer.properties.Park_Urb_1)
+    $('#park-size').text(math.round(layer.properties.Park_Size_, 2) + " Acres")
+    $('#park-program').text(layer.properties.Park_Local)
+    $('#park-hh').text(layer.properties.SUM_TOTHHS)
+    $('#park-sp').text(layer.properties.SUM_TOTPOP)
+    $('#modal-park').modal('show');
+  })
+}
 
 assignClickListener("myRadio1", onRadioClick);
 assignClickListener("myRadio2", onRadioClick);

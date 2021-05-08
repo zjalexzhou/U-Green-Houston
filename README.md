@@ -5,3 +5,5 @@ The project aims at investigating the demand for public parks and prioritizing a
 
 Techniques used: html/css, jQuery, turf.js, leaflet, underscore.js
 
+(Note: the bg image slider on the cover page was inspired by https://github.com/samad-aghaei/background-image-slider. This project also borrowed some design ideas form LA County Art Ed Profile: https://www.lacountyartsedcollective.org/profile/tool/#coords=34.25041/-118.31451/9 and https://zxuanxu.github.io/EquiLivingAPP/.
+
